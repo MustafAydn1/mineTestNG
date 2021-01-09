@@ -1,0 +1,420 @@
+
+
+
+
+//başına @Test yazınca herbiri tekbaşına main gibi çalışıyor.
+//Başında @ olanlara annotation   denir
+//Default Suite:: Testin tamamı demek.Yapılan işlemlerin tamamı
+//priority  yazmazsam alfabetik sıraya göre yapar. 0 yada 1 den başlayabilir.
+//priority ::pariordi:: Öncelik
+//Aynı sayı varsa yine alfabetik gider...
+//Sayı yoksa ve alfabe de yoksa olmayanların default degerleri 0 dır
+//Testlerin tamamı çalışmıyorsa en ustteki calıştırdan yapmamış olabılırsın.
+
+
+//Annotations:Anoteyşıns:: Ek Açıklamalar
+//Bunların yazılımındaki sıra önemli değil kendisi uygun çıktıyı veriyor.
+//herbiri yetki alanının sınırlarında yazılması gereken yere konumlanıyor.
+
+(enabled = false) ile ilgili testi görmezden gel dersin.
+
+
+
+****************************
+Suite
+Test
+Class
+Method
+
+Test1
+Test2
+
+Metod
+Class
+Test
+Suite
+****************************
+
+Junit Test te önce bizim Manuel sonucumuz(Expected),Sonra(Actual) yani sistemin verecegi sonuç yazılırdı.
+Bunların yerini değiştirsen,Eger Sonuc doğru cıkarsa sorun olmaz.Ama yanlış cıkınca,yanlışı anlamlandıramazsın.
+Assert(Excepted(beklenen yani,benim buldugum),Actual(sistemin getirdiği)) --->>EA
+
+TestNG de ise tam tersi yazılır. (Actual,Excepted) --->>AE  şeklinde...
+******************************************************************************
+
+Çok kullanacagın locatorları bu şekilde By ile adlandır ve tut.
+ By menu=By.cssSelector(".nav.navbar-nav>*"); // değişken tipi By oldu
+
+******************************************************************************
+------------------------------------------------------------------------------
+
+DEPENDENCY :: (dependOnMethods={ ... , ... })
+
+Syntax::  @Test (dependsOnMethods = {"startCar"})
+             void driveCar(){}
+
+
+-----------------------------------------------------------------------------------------------------------
+
+groups ::
+
+
+<suite name="All Test Suite">
+   <test name="test1">
+    <groups>
+        <run>
+          <include name="Group D.*"></include>  <!--BUNU İÇEREN::İLK HARFİ İLE başlasın, Nokta VE  *  yazınca oluyor.-->
+           <include name="SmokeTest"></include>
+           <include name="Regression"></include>            ÇALIŞTIRMAK İSTEDİĞİN GRUPLAR
+
+        </run>
+
+    </groups>
+
+        <classes>
+            <class name="M1W1D5_G5_xml._3_Groups">           ÇALIŞTIRMAK İSTEDİĞİN CLASSLAR
+                <methods>
+                    <exclude name="Test3"></exclude>
+                    <exclude name="Test2"></exclude>         ÇALIŞIRKEN OLUŞTURULAN ÖZEL ŞARTLAR/DURUMLAR
+                </methods>
+            </class>
+
+        </classes>
+    </test>
+</suite>
+
+------------------------------------------------------------------------------------------------------------
+Bir Testin,Birden fazla Grubu olabilir.
+  @Test(groups= {"Group ABC","Group DEF"})
+    public void testcase2()
+    {
+        System.out.println("Test case belonging to both Group ABC and Group DEF");
+    }
+
+------------------------------------------------------------------------------------------------------------
+
+XML İÇİNDE DE GRUPLARDAN OLUŞAN YENİ BİR GRUP define EDİLEBİLİR.
+
+    <test name="Groups in Groups">
+
+    <groups>
+
+        <define name="Yeni Oluşan Group">
+            <include name="Group ABC"/>
+            <include name="Regression"/>
+            <include name="SmokeTest"/>
+            <include name="Car"/>
+
+        </define>
+
+        <run>
+            <include name="Yeni Oluşan Group"/>
+            <include name="Group D.*"/>
+        </run>
+    </groups>
+
+        <classes>
+            <class name="M1W1D5_G5_xml._5_Groups_In_Groups"/>
+            <class name="M1W1D5_G5_xml._4_BelongsToMultipleGroups"/>
+            <class name="M1W1D5_G5_xml._3_Groups"/>
+            <class name="M1W1D4_G4_Dependency._1_Dependency"/>
+            <!--<class name="M1W2D1_G6_Parameter._1_ContactUs"/> --> <!--Parametreli Testi gruba almadı.. NEDEN-->
+        </classes>
+    </test>
+
+-----------------------------------------------------------------------------------------------------------------------
+***********************************************************************************************************************
+
+Parameters ::
+
+    @Test(groups={"Car"})
+    @Parameters("enquiry") //xml den alacağı parametrenin adı buraya yazıldı. .....1
+     void  ContactUs(String enquiry ){  // parametre alabilir hale getirildi. .....2
+
+// 1 deki işlem:: XML ile alakayı kurmak için yapıldı.<parameter name="enquiry" ile aynı olmak zorunda....
+
+// 2 deki işlem::Test Metoduna parametre verildi.Aranan kelimelerin yerine bu String adı yazılacak.
+
+// 1 ve 2 birbirinin aynısı olmak zorunda değil.Ama Uzandıkları yerlerde aynı olmalılar.
+
+
+
+xml de yazım Syntax ı:: İki suite arasında Herhangi bir yere yazabilirsin
+
+ <parameter name="enquiry"  value="Gidiyoruz ama yol nereye çıkar,bilmiyoruz..."></parameter>
+
+
+ NOT:: Her parametre için farklı Test ler yapmalısın!!! İki farklı parametre testi tek testte yapılamaz.
+
+-----------------------------------------------------------------------------------------------------------
+
+Parameters testi firefox da yapacaksan::
+1-)ParameterDriver ı extend edeceksin.
+2-)XML de aşagıdaki syntax ı uygulayacaksın.
+
+  <parameter name="browser"  value="firefox"></parameter>
+  <parameter name="arananKelime"  value="samsung"></parameter>
+
+-----------------------------------------------------------------------------------------------------------
+
+Parallel Test yapacaksan:: chrome , firefox , vb. browserlarla aynı anda yapacaksan.
+parallel=classes  , yaparsan  classes içinde altlata classları yazarsın
+parallel=tests    , yaparsan  ayrı ayrı test isimleri vererek aynı testi
+parallel=methods
+
+
+
+1-) utils deki metodlardaki static leri sil. protected kalsın.çunku aynı anda birden fazla driver uretemez.
+2-) Syntax ı:: Aşagıdaki şekilde olmalıdır.
+
+<suite name="All Test Suite">
+    <test name="test1">
+
+        <parameter name="browser"  value="firefox"></parameter>
+        <parameter name="arananKelime"  value="samsung"></parameter>
+
+                <classes>
+            <class name="M1W2D1_G6_Parameter._4_searchFunctionality_Firefox"></class>
+        </classes>
+    </test>
+
+    <test name="test2">
+
+        <parameter name="arananKelime"  value="samsung"></parameter>
+        <parameter name="browser"  value="chrome"></parameter>
+
+        <classes>
+            <class name="M1W2D1_G6_Parameter._4_searchFunctionality_Firefox"></class>
+        </classes>
+    </test>
+
+</suite>
+
+
+------------------------------------------------------------------------------------------------------------------------
+************************************************************************************************************************
+
+DataProvider::
+
+Data provider must return Object[][]/Object[]      or     Iterator<Object[]>/Iterator<Object>
+Ya tek boyutlu olmalı yada 2 boyutlu olmalı..
+
+Oluşturulması::
+
+TEK BOYUTLU İÇİN
+ÖNCE::
+
+@Test(dataProvider= "getData") //senin dataprovider in getData isimli metoddur.
+    public void Username(String username){    System.out.println(username);   }
+
+SONRA::
+
+   @DataProvider // bu metoda dataprovider görevi verildi.
+    public Object[] getData()  //  dataProvider in tipi Object dizi/List olmak zorundadır.
+    {
+        Object [] data={}
+}
+------------------------------------
+
+İKİ BOYUTLU İÇİN
+   @Test(dataProvider= "getData")
+    public void Username(String username,String password)
+
+   @DataProvider
+    public Object[] []getData()
+
+-------------------------------------
+
+Iterator   ile de yapılır::YERİNE GİT BAK. KAFA KARIŞMASI:: M1W2D2_G8_DataProvider\_3_Iterator_ile.java
+
+-------------------------------------
+
+
+
+
+
+
+
+
+//driver.get ile navigate arasındaki fark nedir? geri ileri dışında...
+
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         ŞAMİL BEY JAVA DERSİ:28.09.2020
+
+         // Let user provide a number between 0 and 3
+             // and generate a random number between 0 and 3
+             // and check if provided number is equal to generated number
+             // if they are equal print out "You Won the Game!!!"
+             // else "Game Over!!!"
+
+Samil Balcidün 23:04
+Task 3:
+/*
+    Write a Java program to calculate profit or loss
+    Input:
+        cost price: 1000
+        selling price: 1500
+    Output:
+        Profit: 500
+
+
+    Input:
+        cost price: 5000
+        selling price: 2000
+    Output:
+        Loss: 3000
+     */
+
+Samil Balcidün 23:14
+Task 4: Part 1:
+/*
+    //Part1:
+    Given date, check if user provided correct date format
+        MM/YYYY
+        1-12
+    ex: 03/2020 => correct
+        25/2020 => wrong
+     */
+
+
+   Samil Balcidün 23:20
+   Task 5:
+   // Write a Java program to check whether a character is alphabet or not.
+       // use just lowercase letters, a to z
+       // hint: char is also numeric
+
+       // ex1:  h => it is alphabet character
+       // ex2: % => it is not in alphabet
+
+
+Huseyin Ozdemirdün 23:27
+/ karakterine kadar al diyebilir  miyiz
+@Huseyin Ozdemir
+`  String date = "1111/2020";
+        int ind = date.indexOf("/");
+        String mounthStr = date.substring(0,ind);
+
+        int mount = Integer.parseInt(mounthStr);
+
+        System.out.println(mount);
+
+main içinde yazsaydık eğer initialize etmemiz gerekirdi demi hocam
+String s1 = null;
+        System.out.println(s1);
+Samil Balcidün 23:49
+Task 1:
+/*
+    Write a Java program to evaluate exam result of student
+    ex:
+    'A'-> Excellent!!!
+    'B'-> Well done
+    'C'-> Good
+    'D'-> Need improvement
+    'F'-> Fail
+     */
+
+    // part 2 , try to use switch statement instead of if-else-if
+
+
+Malik H.bugün saat 00:05
+   Scanner scanner = new Scanner(System.in);
+        System.out.print("Exam = ");
+        String exam=scanner.nextLine();
+        switch(exam) {
+            case "A":
+                System.out.println( "Excellent!!!" );
+                break;
+            case "B":
+                System.out.println( "Well done" );
+                break;
+            case "C":
+                System.out.println( "Good" );
+                break;
+            case "D":
+                System.out.println( "Need improvement" );
+                break;
+            case "F":
+                System.out.println( "Fail" );
+                break;
+            default:
+                System.out.println( "Not valid input!!!" );
+                break;
+        }
+
+    }
+Huseyin U.bugün saat 00:07
+@Samil Balci hocam yukarda sorum vardı
+ok. şimdi anladım hocam. çok sağolun
+Samil Balcibugün saat 00:23
+Task 4:
+    /*
+    Write a Java program to input marks of five subjects
+    Physics, Chemistry, Biology, Mathematics and Computer,
+    calculate percentage and grade according to given conditions:
+
+If percentage >= 90% : Grade A
+If percentage >= 80% : Grade B
+If percentage >= 70% : Grade C
+If percentage >= 60% : Grade D
+If percentage >= 40% : Grade E
+If percentage < 40% : Grade F
+     */
+
+    //ex:
+//    Physics: 90,
+//    Chemistry: 50,
+//    Biology: 77,
+//    Mathematics: 95
+//    Computer: 65
+    //percentage = (90+50+77+95+65)/5 = 75.4
+
+    //output => Grade C
+Task 5: 11:31
+// Write a Java program that takes a year from user
+    // and print whether that year is a leap year or not.
+
+
+
+

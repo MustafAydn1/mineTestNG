@@ -1,0 +1,54 @@
+<suite name="All Test Suite">
+
+    <test name="test1">
+    <groups>
+
+        <run>
+           <include name="Group ABC"></include>
+
+           <include name="Group D.*"></include>  <!--BUNU İÇEREN::İLK HARFİ İLE başlasın, Nokta VE  *  yazınca oluyor.
+                                                   regex,regular expression -->
+
+        </run>
+
+    </groups>
+
+        <classes>
+            <class name="M1W1D5_G5_xml._4_BelongsToMultipleGroups"></class>
+        </classes>
+    </test>
+
+
+
+</suite>
+
+
+
+
+<!--
+Syntaxı:: classes ın içine Çalışacagın grubun oldugu class(lar) yazılacak...
+          groups un içine de hangileri nasıl çalışacaksa(include-exclude) o yazılacak.
+
+
+testNG kullanmamızın Amaçları::
+
+1-)Testleri İstediğin gibi düzenle ve bunlardan  istediklerini istediğin gibi çalıştır.
+2_)Hatalı olanları bize raporlayıp verecek...
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- hocam ayrı ayrı test paçacıklarını tek yerden run yapmayı mı amaçlıyor xml test-->

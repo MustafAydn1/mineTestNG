@@ -1,0 +1,58 @@
+<suite name="All Test Suite">
+
+    <test name="Groups in Groups">
+    <groups>
+
+        <define name="Yeni Oluşan Group">
+            <include name="Group ABC"/>
+            <include name="Regression"/>
+            <include name="SmokeTest"/>
+            <include name="Car"/>
+
+        </define>
+
+        <run>
+            <include name="Yeni Oluşan Group"/>
+            <include name="Group D.*"/>
+        </run>
+    </groups>
+
+        <classes>
+            <class name="M1W1D5_G5_xml._5_Groups_In_Groups"/>
+            <class name="M1W1D5_G5_xml._4_BelongsToMultipleGroups"/>
+            <class name="M1W1D5_G5_xml._3_Groups"/>
+            <class name="M1W1D4_G4_Dependency._1_Dependency"/>
+            <!--<class name="M1W2D1_G6_Parameter._1_ContactUs"/> --> <!--Parametreli Testi gruba almadı.. NEDEN-->
+        </classes>
+    </test>
+
+
+
+</suite>
+
+
+
+
+<!--
+Farklı Claslardan yapılan group aynı isimdeki tüm testleri aldı...
+
+Grup içinde Grubu YADA Gruplar grubu...
+Gruplar ayrıca başka grupları da içerebilir. Bu gruplara MetaGruplar denir.
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- hocam ayrı ayrı test paçacıklarını tek yerden run yapmayı mı amaçlıyor xml test-->

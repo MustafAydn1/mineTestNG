@@ -1,0 +1,27 @@
+
+<suite name="All Test Suite">
+
+
+
+
+    <test name="test1">
+        <parameter name="arananKelime"  value="Mac"></parameter>
+
+
+        <classes>
+            <class name="M1W2D1_G6_Parameter._3_searchFunctionality"></class>
+        </classes>
+    </test>
+
+</suite>
+
+
+
+        <!--mac ve samsung yazınca olmuyor...  buyuk yazınca oluyor. neden..?
+        Sadece iMac geciyor.Diğerlernde de Mac yazılı?
+        Sorun Assertte oluşuyor.
+        printi Assertin Altına al,iMac geçmez.
+
+        toLowerCase yazmadan Assert yap. Mac olarak hepsi de gecer.
+
+        -->

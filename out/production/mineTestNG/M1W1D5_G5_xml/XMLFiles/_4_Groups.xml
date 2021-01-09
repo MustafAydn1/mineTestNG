@@ -1,0 +1,25 @@
+
+<suite name="All Test Suite">
+    <test name="test1">
+
+    <groups>
+        <run>
+           <include name="SmokeTest"></include>
+        </run>
+    </groups>
+
+        <classes>
+            <class name="M1W1D5_G5_xml._3_Groups"></class>
+        </classes>
+    </test>
+</suite>
+
+
+
+
+<!-- include:: inkuluud:: dahil etmek ; Bunu yazınca hangileri çalışsın istersen sadece onlar çalışır.
+
+Hocadan gelen xml dosyalarını nasıl açıyorsunuz?????
+
+
+-->

@@ -1,0 +1,24 @@
+
+<suite name="All Test Suite">
+
+
+    <test name="test1">
+
+
+
+                <classes>
+
+            <class name="M1W2D1_G6_Parameter._1_ContactUs"></class>
+
+        </classes>
+
+    </test>
+
+    <parameter name="enquiry"  value="Gidiyoruz ama yol nereye çıkar,bilmiyoruz..."></parameter>
+</suite>
+
+
+
+        <!--
+xml e yazılan parameter iki suite arasında nereye yazarsan yaz çalışıyor
+        -->

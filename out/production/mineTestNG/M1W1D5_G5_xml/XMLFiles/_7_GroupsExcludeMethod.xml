@@ -1,0 +1,39 @@
+
+<suite name="All Test Suite">
+    <test name="test1">
+    <groups>
+        <run>
+           <include name="SmokeTest"></include>
+           <include name="Regression"></include>
+        </run>
+
+    </groups>
+
+        <classes>
+            <class name="M1W1D5_G5_xml._3_Groups">
+                <methods>
+                    <exclude name="Test3"></exclude>
+                    <exclude name="Test2"></exclude>
+                </methods>
+            </class>
+
+        </classes>
+    </test>
+
+
+</suite>
+
+
+
+
+<!-- Grubu SmokeTest olanın içindeki Test3 un çalışmasını istemiyorsam;
+
+classes in içine gelip,methods dan, Test3 ü exclude ile  hariç tutarım.
+
+Yani class ın içinden Test metoduna müdahale edilir.
+
+Class ın içine yazdığın şey groups u bağlar ve geçiş üstunlugu var.
+
+MESUD BEYİN SORDUĞU NEYDİ???
+
+-->

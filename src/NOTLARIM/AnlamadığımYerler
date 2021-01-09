@@ -1,0 +1,13 @@
+
+ M1W1D1_G1_TestNgGiris\_3_Assertions.java
+
+    String s;  // şeklinde class ın gövdesinde bu ifadeyi yazarsam,metodun içinde hiçbirsey yazmadan assert yap
+//Yani bir başlangıc degeri verince test metodun içinde o kullanılır.BUradaki başlangıç degeri null dur.
+
+    @Test
+    void nullOrnek(){
+        //String s;            // 1 bu şekilde yaparsa assert bile kabul etmedi. kızardı.
+      //  String s="";         // 2 bu şekilde içi null değil dedi.
+      //  String s=null;         // 3 bu şekilde kabul etti.
+        Assert.assertNull(s);    // BUNLARIN NEDENLERİNİ HATIRLAYAMADIM.?????
+************************************************************************************************************************

@@ -1,0 +1,34 @@
+
+<suite name="All Test Suite">
+
+
+    <test name="test1">
+        <parameter name="browser"  value="Chrome"></parameter>
+        <parameter name="itemName"  value="ipod"></parameter> <!--value degeri metoddaki String degere karşılık geliyor. -->
+
+
+
+                <classes>
+            <class name="M1W2D4_G10_POM_HTMLReport._1_WishList_ParameterDriver"></class>
+        </classes>
+    </test>
+
+
+
+</suite>
+
+
+
+        <!-- bu  M1W2D1_G6_Parameter._4_searchFunctionality_Firefox  dosyasında  aşagıdaki parameter uzantı yok.
+         <parameter name="browser"  value="firefox"></parameter>
+Ama extends yaptıgı yerde oldugu için otomatik aldı ve yönlendirildi...
+
+Aynı Test metodu için; Birden çok parameter ile çalışılabilir.
+
+Bir testin içinde direk yer almanyan  metodlara da parameter atanabilir ve
+bunlar class da varmış gibi metod uzerinden yönlendirilerek çalıştırılır.
+Belki tools un içine parameter de konabilir.
+
+
+
+        -->

@@ -1,0 +1,29 @@
+
+<suite name="All Test Suite">
+    <test name="test1">
+    <groups>
+
+        <run>
+           <exclude name="SmokeTest"></exclude>
+            <exclude name="Regression"></exclude> <!-- Bununla Sadece test6 çalışır.Yorum Ardaarda nasıl yazılır  -->
+             </run>
+
+         </groups>
+
+             <classes>
+                 <class name="M1W1D5_G5_xml._3_Groups"></class>
+             </classes>
+         </test>
+
+
+     </suite>
+
+
+
+
+     <!-- exclude:: ekskuluud:: hariç tutmak...
+     Dikkat Test6 da çalıştı.
+
+
+ <exclude name="Regression"></exclude>  Bununla Sadece test6 çalışır.Yorum Ardaarda nasıl yazılır
+     -->

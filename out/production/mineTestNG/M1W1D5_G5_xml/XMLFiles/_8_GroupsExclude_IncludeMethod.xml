@@ -1,0 +1,41 @@
+
+<suite name="All Test Suite">
+    <test name="test1">
+        <groups>
+
+            <run>
+                <include name="SmokeTest"></include>
+                <include name="Regression"></include>
+            </run>
+
+        </groups>
+
+        <classes>
+            <class name="M1W1D5_G5_xml._3_Groups">
+                <methods>
+                    <exclude name="Test3"></exclude>
+                    <exclude name="Test5"></exclude>
+                    <include name="Test1"></include>   <!-- include  Test1 ve Test6 yı silince normal çalışıyor -->
+                    <include name="Test6"></include>   <!-- Bunlar varken kısa devre oluyor.Üstü iptal ediyor. -->
+                </methods>
+            </class>
+
+        </classes>
+    </test>
+
+
+</suite>
+
+        <!-- class ın içine yukarıdaki groupstan hangisini run yaptı isen
+        o gruplarla ilgili talimat verebilirsin.
+
+        BANA run ile gelen talimata uygun emir ver. Yoksa tüm run ı iptal ederim.
+
+
+        classtan grup haricinde gelen herhangi bir talimat
+        yukarıdaki tüm işlemleri gecersiz kılıyor.
+        Kendi dediklerini yaptırtıyor.
+        Sanki groups talimatları hiç verilmemiş gibi davranıyor.
+
+Mesut Beyin sorusu...
+        -->

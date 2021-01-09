@@ -1,0 +1,28 @@
+
+<suite name="All Test Suite">                                    <!-- Tüm testleri kapsayan bölüm-->
+
+
+    <test name="test1">                                          <!-- test1 i kapsayan bölüm-->
+        <classes>                                                <!-- çalışcak classların yazıldığı bölüm-->
+            <class name="M1W1D5_G5_xml._1_Intro"></class>
+            <class name="M1W1D5_G5_xml._2_Intro2"></class>
+        </classes>
+    </test>
+
+
+</suite>
+
+
+
+        <!-- hocam ayrı ayrı test paçacıklarını tek yerden run yapmayı mı amaçlıyor xml test
+
+        KONSOLUN SOLUNDA :: Testlerin isimleri yazılıdır.JavaClass dan ve xml den gelen isimler yazılıdır.
+
+        KONSOLUN SAĞINDA :: Hiyerarşı ve Testlerin içeriklerinin çıktısı yazılıdır.
+
+        Test isimleri ile içerikleri karıştırma
+
+
+
+
+        -->

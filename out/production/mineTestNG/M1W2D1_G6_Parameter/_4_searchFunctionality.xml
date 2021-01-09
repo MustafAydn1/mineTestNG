@@ -1,0 +1,36 @@
+
+<suite name="All Test Suite">
+
+
+    <test name="test1">
+        <parameter name="arananKelime"  value="mac"></parameter>
+        <parameter name="arananKelime"  value="samsung"></parameter>
+
+
+                <classes>
+            <class name="M1W2D1_G6_Parameter._3_searchFunctionality"></class>
+        </classes>
+    </test>
+<!--
+    <test name="test2">
+        <parameter name="arananKelime"  value="mac"></parameter>
+
+
+        <classes>
+            <class name="M1W2D1_G6_Parameter._3_searchFunctionality"></class>
+        </classes>
+    </test>
+-->
+</suite>
+
+
+
+        <!--DİKKAT!!!!!
+              <parameter name="arananKelime"  value="mac"></parameter>
+              <parameter name="arananKelime"  value="samsung"></parameter>
+
+              BU ŞEKİLDE TEK TESTİN İÇİNDE YAPARSAN SADECE ALTTA OLANI VERİYOR.USTTEKİNI GÖRMUYOR. NEDEN ALTTAKİ???
+
+                Yani her parametre için farklı Test ler yapmalısın!!!
+
+        -->

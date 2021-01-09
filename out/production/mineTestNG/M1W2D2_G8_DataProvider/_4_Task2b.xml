@@ -1,0 +1,11 @@
+<suite name="All Test Suite">
+    <test name="Test1" >
+
+        <parameter name="browser"  value="chrome"></parameter>
+
+        <classes>
+                <class name="M1W2D2_G8_DataProvider._4_Task2"></class>
+        </classes>
+
+    </test>
+</suite>

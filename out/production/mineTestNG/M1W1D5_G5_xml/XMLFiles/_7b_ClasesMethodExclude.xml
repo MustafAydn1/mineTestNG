@@ -1,0 +1,51 @@
+
+<suite name="All Test Suite">
+
+
+    <test name="test1">
+        <classes>
+            <class name="M1W1D5_G5_xml._1_Intro"></class>
+            <class name="M1W1D5_G5_xml._2_Intro2"></class>
+
+
+            <methods>
+
+                <exclude name="test2"></exclude>       <!-- Sadece burası çalışmıyor -->
+                <exclude name="TestIntro1"></exclude>  <!-- burası yinede çalışıyor neden?? -->
+            </methods>
+
+        </classes>
+    </test>
+
+
+    <test name="test2">
+        <classes>
+            <class name="M1W1D5_G5_xml._1_Intro"/>
+            <class name="M1W1D5_G5_xml._2_Intro2"/>
+            <class name="M1W1D4_G4_Dependency._1_Dependency"/>  <!-- public değil o yuzden çalışmadı-->
+            <methods>
+
+                <exclude name="TestIntro1"></exclude>   <!-- burası yinede çalışıyor neden?? -->
+                <exclude name="parkCar"></exclude>      <!-- Sadece burası çalışmıyor -->
+                <exclude name="test2"></exclude>        <!-- burası yinede çalışıyor neden?? -->
+
+
+            </methods>
+
+        </classes>
+    </test>
+</suite>
+
+
+        <!--DEMEK Kİ;
+
+        clases in içine yazılan methodslardan sadece en sondaki çalışır.
+        Yani sadece bir tane yazmalısın.diğerleri çalışmıyor.  BUNU YANLIŞLANDI
+
+        ÖYLEYSE NEDEN BUNLAR OLUYOR.
+       Acaba sadece 1 er tane mi tanımlamamız gerekiyor. Class ve metod için ... YADA NE ??
+
+
+
+
+        -->

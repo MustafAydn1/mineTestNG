@@ -1,0 +1,18 @@
+<suite name="All Test Suite"    parallel="tests">
+    <test name="Test1" >
+
+        <classes>
+                <class name="M1W2D2_G8_DataProvider._5_facebookUyeOl_DataProvider"></class>
+        </classes>
+
+    </test>
+
+</suite>
+
+<!--
+Neden çalışmadı... başta boşluk bırakmışım.hseyın h. duzeltti.
+paralel testini nasıl yaparız.
+4 test aynı anda çalışsa...
+
+
+-->

@@ -1,0 +1,48 @@
+
+<suite name="All Test Suite">
+    <test name="test1">
+        <groups>
+
+            <run>
+                <exclude name="Regression"></exclude>
+            </run>
+
+        </groups>
+
+        <classes>
+            <class name="M1W1D5_G5_xml._3_Groups">
+                <methods>
+                    <exclude name="Test3"></exclude>  <!-- Sadece bu varken sorun yok.Alttaki gelince sorun -->
+                    <include name="Test1"></include>
+
+                </methods>
+            </class>
+
+        </classes>
+    </test>
+
+
+</suite>
+
+
+        <!-- BÖYLEDE YAPTIK YİNE AŞAGIDAKİ SONUÇ GELDİ
+BUNLARI BÖYLE AYRI AYRI SAYFA YAPMAYA GEREK YOK
+Suite nin altındaki  <test name="test1"> den başlayarak kopyala
+test2 olarak aç ve ne yapmak istiyorsan orada yap.
+
+
+
+        class ın içine yukarıdaki groupstan hangisini run yaptı isen
+        o gruplarla ilgili talimat verebilirsin.
+
+        classtan grup haricinde gelen herhangi bir talimat
+        yukarıdaki tüm işlemleri gecersiz kılıyor.
+        Kendi dediklerini yaptırtıyor.
+        Sanki groups talimatları hiç verilmemiş gibi davranıyor.
+
+
+
+
+
+
+        -->
